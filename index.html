@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tessie & Sonny – Golden Wedding Celebration</title>
+
+    <!-- Social Media Link Preview Meta Tags -->
+    <meta property="og:title" content="Tessie & Sonny – Golden Wedding Celebration">
+    <meta property="og:description" content="You are invited to our Golden Wedding Anniversary. Join us in celebrating 50 years of love!">
+    <meta property="og:image" content="wedding-photo.jfif"> <!-- The image shown in the preview -->
+    <meta property="og:url" content="https://your-website-url.com"> <!-- Replace with your actual live link when hosted -->
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tessie & Sonny – Golden Wedding Celebration">
+    <meta name="twitter:description" content="You are invited to our Golden Wedding Anniversary. Join us in celebrating 50 years of love!">
+    <meta name="twitter:image" content="wedding-photo.jfif">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -26,13 +39,20 @@
             --font-body: 'Montserrat', sans-serif;
         }
 
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
         html { scroll-behavior: smooth; }
 
         body {
             font-family: var(--font-body);
             background: var(--cream);
             color: var(--dark);
-            overflow-x: hidden;
             line-height: 1.6;
         }
 
@@ -278,10 +298,8 @@
 
         .hero-names .shimmer {
             display: inline-block;
-            padding-right: 0.3em;
-            padding-left: 0.2em;
-            margin-right: -0.3em;
-            margin-left: -0.2em;
+            padding: 0 0.2em;
+            margin: 0 -0.2em;
             background: linear-gradient(
                 120deg,
                 var(--gold) 0%, var(--gold) 40%,
@@ -347,30 +365,40 @@
             position: absolute;
             bottom: 2rem;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, 0);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 0.4rem;
             color: var(--gold);
             opacity: 0;
-            animation: fadeInUp 1s ease 2.2s forwards;
+            animation: fadeInUpCentered 1s ease 2.2s forwards;
+            pointer-events: none;
+            z-index: 10;
         }
         .scroll-indicator span {
             font-size: 0.65rem;
             letter-spacing: 3px;
+            margin-right: -3px;
             text-transform: uppercase;
+            text-align: center;
         }
         .scroll-arrow {
-            width: 20px; height: 20px;
-            border-right: 1px solid var(--gold);
-            border-bottom: 1px solid var(--gold);
-            transform: translateY(0) rotate(45deg);
+            width: 16px; height: 16px;
+            border-right: 1.5px solid var(--gold);
+            border-bottom: 1.5px solid var(--gold);
+            margin: 0 auto;
+            transform: rotate(45deg);
             animation: bounce 2s ease-in-out infinite;
         }
         @keyframes bounce {
             0%, 100% { transform: translateY(0) rotate(45deg); }
-            50% { transform: translateY(10px) rotate(45deg); }
+            50% { transform: translateY(8px) rotate(45deg); }
+        }
+        @keyframes fadeInUpCentered {
+            from { opacity: 0; transform: translate(-50%, 40px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
         }
 
         /* ===== Shared Keyframes ===== */
@@ -1566,71 +1594,77 @@
 
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
-            html, body { overflow-x: hidden; }
+            html, body { overflow-x: hidden; width: 100%; }
             .nav {
-                gap: 0.8rem;
-                padding: 0.8rem 1rem;
+                gap: 0.5rem 0.8rem;
+                padding: 0.7rem 0.8rem;
                 flex-wrap: wrap;
+                justify-content: center;
             }
             .nav a {
                 font-size: 0.6rem;
                 letter-spacing: 1.5px;
+                padding: 0.3rem 0;
             }
-            .hero { padding: 2rem 1rem; }
+            .hero { padding: 4.5rem 1.25rem 2.5rem; }
             .hero-names { font-size: clamp(2.5rem, 10vw, 5rem); }
             .hero-subtitle { font-size: 0.7rem; letter-spacing: 4px; }
-            .invitation { padding: 4rem 1rem; }
-            .invitation-inner { padding: 2.5rem 1.5rem; }
+            .invitation { padding: 4rem 1.25rem; }
+            .invitation-inner { padding: 2.5rem 1.25rem; width: 100%; }
             .invitation-inner::before,
             .invitation-inner::after {
-                width: 30px; height: 30px;
+                width: 28px; height: 28px;
             }
             .invitation-highlight { font-size: 2.2rem; }
             .form-row { grid-template-columns: 1fr; }
             .countdown { gap: 0.8rem; }
             .countdown-number { font-size: 2.5rem; }
             .countdown-item { min-width: 75px; padding: 1.4rem 0.8rem; }
-            .countdown-section { padding: 4rem 1rem; }
-            .details { padding: 4rem 1rem; }
+            .countdown-section { padding: 4rem 1.25rem; }
+            .details { padding: 4rem 1.25rem; }
             .details-grid {
                 gap: 1.5rem;
                 grid-template-columns: 1fr;
+                width: 100%;
             }
-            .detail-card { padding: 2rem 1.5rem; }
-            .couple-section { padding: 3rem 1rem; }
+            .detail-card { padding: 2rem 1.25rem; }
+            .couple-section { padding: 3.5rem 1.25rem; }
             .couple-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+                width: 100%;
+                margin: 2rem auto 0;
             }
             .couple-heart {
                 order: -1;
             }
             .couple-floral-left, .couple-floral-right {
-                width: 160px;
-                height: 240px;
-                opacity: 0.2;
+                width: 140px;
+                height: 200px;
+                opacity: 0.15;
             }
             .photo-frame {
-                width: 180px;
-                height: 230px;
+                width: 190px;
+                height: 240px;
             }
-            .map-section { padding: 4rem 1rem; }
-            .map-wrapper iframe { height: 260px; }
-            .rsvp { padding: 4rem 1rem; }
-            .rsvp-form { max-width: 100%; }
+            .map-section { padding: 4rem 1.25rem; }
+            .map-wrapper { width: 100%; }
+            .map-wrapper iframe { height: 260px; width: 100%; }
+            .rsvp { padding: 4rem 1.25rem; }
+            .rsvp-form { max-width: 100%; width: 100%; }
             .section-title { font-size: 2.5rem; }
             .title-flourish { margin: 0 auto 1.5rem; }
             .title-flourish-line { width: 45px; }
-            .footer { padding: 3rem 1rem; }
+            .footer { padding: 3rem 1.25rem; }
             .footer-names { font-size: 2rem; }
             .wax-seal { width: 68px; height: 68px; }
             .wax-seal-inner { width: 50px; height: 50px; }
             .wax-seal-monogram { font-size: 1.1rem; }
-            .dress-palette { gap: 0.4rem; }
+            .dress-palette { gap: 0.4rem; flex-wrap: wrap; }
             .color-swatch { width: 22px; height: 22px; }
-            .gallery-section { padding: 4rem 1rem; }
-            .gallery-card { max-width: 100% !important; padding: 1rem; }
-            .gallery-frame { aspect-ratio: 4 / 3; }
+            .gallery-section { padding: 4rem 1.25rem; }
+            .gallery-card { max-width: 100% !important; width: 100%; padding: 1.25rem; margin: 1.5rem auto 0 !important; }
+            .gallery-frame { aspect-ratio: 8 / 5; }
             .lightbox-caption { font-size: 1.1rem; bottom: 1.5rem; padding: 0.8rem 1.2rem; width: 90%; }
         }
 
@@ -1639,12 +1673,12 @@
             .hero-subtitle { font-size: 0.6rem; letter-spacing: 3px; }
             .hero-names { font-size: clamp(2rem, 12vw, 4rem); }
             .invitation-text { font-size: 1.05rem; line-height: 1.9; }
-            .invitation-inner { padding: 2rem 1.2rem; }
+            .invitation-inner { padding: 2rem 1rem; }
             .section-title { font-size: 2.2rem; }
             .couple-name { font-size: 1.8rem; }
             .photo-frame {
-                width: 160px;
-                height: 210px;
+                width: 165px;
+                height: 215px;
             }
             .detail-value { font-size: 1.25rem; }
             .detail-sub { font-size: 0.78rem; }
@@ -2097,13 +2131,7 @@
             <div class="title-flourish-line"></div>
         </div>
 
-        <!-- Animated Radar Pin -->
-        <div class="map-radar-pin reveal delay-1">
-            <div class="radar-ring"></div>
-            <div class="radar-ring"></div>
-            <div class="radar-ring"></div>
-            <div class="radar-center-dot">📍</div>
-        </div>
+
 
         <div class="map-wrapper reveal-scale delay-2">
             <!-- ✏️ Replace with your actual Google Maps embed for the church address -->
