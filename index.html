@@ -278,9 +278,10 @@
 
         .hero-names .shimmer {
             display: inline-block;
-            padding-right: 0.25em;
-            padding-left: 0.05em;
-            margin-right: -0.2em;
+            padding-right: 0.3em;
+            padding-left: 0.2em;
+            margin-right: -0.3em;
+            margin-left: -0.2em;
             background: linear-gradient(
                 120deg,
                 var(--gold) 0%, var(--gold) 40%,
@@ -1159,44 +1160,7 @@
             border-bottom: 1px solid rgba(201,168,76,0.18);
         }
         .map-section .section-title { color: var(--dark); }
-        .map-radar-pin {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0.8rem auto 0.5rem;
-            position: relative;
-            width: 44px;
-            height: 44px;
-        }
-        .radar-ring {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            animation: radarPulse 2.5s ease-out infinite;
-            opacity: 0;
-        }
-        .radar-ring:nth-child(2) { animation-delay: 0.8s; }
-        .radar-ring:nth-child(3) { animation-delay: 1.6s; }
-        @keyframes radarPulse {
-            0% { transform: scale(0.3); opacity: 0.9; }
-            100% { transform: scale(1.8); opacity: 0; }
-        }
-        .radar-center-dot {
-            width: 22px;
-            height: 22px;
-            background: linear-gradient(135deg, var(--gold-shine), var(--gold-dark));
-            border-radius: 50%;
-            box-shadow: 0 0 16px rgba(201, 168, 76, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FFF;
-            font-size: 11px;
-            position: relative;
-            z-index: 2;
-        }
+
         .map-wrapper {
             max-width: 800px;
             margin: 2rem auto 0;
@@ -1317,54 +1281,243 @@
             filter: drop-shadow(0 0 6px rgba(201,168,76,0.5));
         }
 
-        /* ===== Gold Wax Seal Badge ===== */
+        /* ===== Classic Deep Red Wax Seal ===== */
         .wax-seal {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 35% 30%, #E8D48B 0%, #C9A84C 40%, #A07C1C 75%, #634B0B 100%);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(201, 168, 76, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.5), inset 0 -4px 8px rgba(0, 0, 0, 0.6);
+            width: 80px;
+            height: 80px;
+            border-radius: 52% 48% 55% 45% / 48% 52% 45% 55%;
+            background: radial-gradient(circle at 35% 30%, #a62121 0%, #7d1212 40%, #540606 75%, #2a0000 100%);
+            box-shadow: 
+                inset 2px 2px 5px rgba(255, 100, 100, 0.4), 
+                inset -3px -3px 8px rgba(0, 0, 0, 0.7),
+                3px 8px 20px rgba(0, 0, 0, 0.5), 
+                0 0 15px rgba(125, 18, 18, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
             position: relative;
             z-index: 5;
-            border: 2px solid rgba(245, 230, 163, 0.8);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;
+            cursor: default;
         }
         .wax-seal:hover {
-            transform: scale(1.08) rotate(5deg);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 30px rgba(245, 230, 163, 0.6);
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 
+                inset 2px 2px 5px rgba(255, 100, 100, 0.5), 
+                inset -3px -3px 8px rgba(0, 0, 0, 0.7),
+                4px 10px 25px rgba(0, 0, 0, 0.6), 
+                0 0 20px rgba(125, 18, 18, 0.5);
+            border-radius: 48% 52% 45% 55% / 52% 48% 55% 45%;
         }
         .wax-seal-inner {
-            width: 56px;
-            height: 56px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            border: 1px dashed rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 200, 200, 0.15);
+            box-shadow: 
+                inset 0 0 8px rgba(0,0,0,0.6), 
+                0 1px 2px rgba(255,100,100,0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: radial-gradient(circle at 40% 40%, rgba(201, 168, 76, 0.3) 0%, transparent 80%);
+            background: radial-gradient(circle at 40% 40%, rgba(166, 33, 33, 0.3) 0%, transparent 80%);
         }
         .wax-seal-monogram {
             font-family: var(--font-display);
-            font-size: 1.25rem;
-            color: #FFFDF9;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+            font-size: 1.5rem;
+            color: var(--gold-shine);
+            text-shadow: -1px -1px 1px rgba(255,255,255,0.4), 1px 1px 3px rgba(0,0,0,0.9);
             line-height: 1;
         }
         .wax-seal-sub {
             font-family: var(--font-body);
-            font-size: 0.45rem;
-            letter-spacing: 2px;
-            color: #FFF3D1;
+            font-size: 0.4rem;
+            letter-spacing: 2.5px;
+            color: var(--gold-light);
             font-weight: 600;
             text-transform: uppercase;
-            margin-top: 1px;
+            margin-top: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
         }
+
+        /* ===== Gallery / 50 Years of Memories Section ===== */
+        .gallery-section {
+            background:
+                radial-gradient(circle at 50% 30%, rgba(201, 168, 76, 0.22) 0%, transparent 60%),
+                radial-gradient(circle at 10% 80%, rgba(245, 230, 163, 0.12) 0%, transparent 45%),
+                linear-gradient(180deg, #1f170d 0%, #291d10 50%, #1c140a 100%);
+            padding: 6.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(201, 168, 76, 0.25);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+        }
+        .gallery-card {
+            background: linear-gradient(135deg, rgba(44,36,23,0.85), rgba(26,20,8,0.95));
+            border: 1.5px solid rgba(201, 168, 76, 0.35);
+            padding: 1.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(201, 168, 76, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        .gallery-card:hover {
+            border-color: var(--gold-shine);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 35px rgba(245, 230, 163, 0.3);
+        }
+        .gallery-frame {
+            width: 100%;
+            aspect-ratio: 8 / 5;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            background: #181108;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+        .gallery-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 2;
+            transition: transform 0.6s ease;
+        }
+        .gallery-card:hover .gallery-frame img {
+            transform: scale(1.06);
+        }
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background:
+                radial-gradient(circle at 50% 40%, rgba(201, 168, 76, 0.2) 0%, transparent 70%),
+                linear-gradient(180deg, rgba(245, 230, 163, 0.05) 0%, rgba(0, 0, 0, 0.4) 100%);
+            color: var(--gold-shine);
+            text-align: center;
+        }
+        .gallery-placeholder-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--gold-shine);
+            margin-top: 0.8rem;
+            letter-spacing: 2px;
+        }
+        .gallery-placeholder-sub {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            color: var(--gold-light);
+            opacity: 0.7;
+            margin-top: 0.4rem;
+        }
+        .gallery-caption {
+            margin-top: 1.2rem;
+            text-align: center;
+        }
+        .gallery-year {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #1a1207;
+            background: linear-gradient(120deg, var(--gold-light), var(--gold-shine));
+            padding: 0.2rem 0.8rem;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 0.5rem;
+        }
+        .gallery-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--cream);
+            font-weight: 400;
+        }
+        .gallery-desc {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            color: var(--gold-light);
+            opacity: 0.8;
+            margin-top: 0.3rem;
+        }
+
+        /* ===== Lightbox Overlay ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            padding: 2rem;
+            backdrop-filter: blur(8px);
+        }
+        .lightbox.active {
+            display: flex;
+            animation: lightboxFadeIn 0.3s ease;
+        }
+        @keyframes lightboxFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90vh;
+            object-fit: contain;
+            border: 3px solid var(--gold);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(201, 168, 76, 0.3);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem; right: 2rem;
+            font-size: 2.5rem;
+            color: var(--gold-light);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-weight: 300;
+            line-height: 1;
+            transition: color 0.3s ease, transform 0.3s ease;
+            z-index: 10001;
+        }
+        .lightbox-close:hover {
+            color: var(--gold-shine);
+            transform: scale(1.2);
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold-shine);
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            max-width: 90%;
+            z-index: 10002;
+            background: linear-gradient(135deg, rgba(24, 17, 8, 0.9), rgba(11, 7, 3, 0.95));
+            padding: 1rem 2rem;
+            border: 1px solid rgba(201, 168, 76, 0.35);
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+            display: none;
+            pointer-events: none;
+        }
+        .gallery-frame { cursor: zoom-in; }
 
         /* ===== Scroll Animations ===== */
         .reveal {
@@ -1413,21 +1566,38 @@
 
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
+            html, body { overflow-x: hidden; }
             .nav {
-                gap: 1rem;
+                gap: 0.8rem;
                 padding: 0.8rem 1rem;
                 flex-wrap: wrap;
             }
             .nav a {
-                font-size: 0.65rem;
-                letter-spacing: 2px;
+                font-size: 0.6rem;
+                letter-spacing: 1.5px;
             }
+            .hero { padding: 2rem 1rem; }
             .hero-names { font-size: clamp(2.5rem, 10vw, 5rem); }
+            .hero-subtitle { font-size: 0.7rem; letter-spacing: 4px; }
+            .invitation { padding: 4rem 1rem; }
             .invitation-inner { padding: 2.5rem 1.5rem; }
+            .invitation-inner::before,
+            .invitation-inner::after {
+                width: 30px; height: 30px;
+            }
+            .invitation-highlight { font-size: 2.2rem; }
             .form-row { grid-template-columns: 1fr; }
-            .countdown { gap: 1rem; }
+            .countdown { gap: 0.8rem; }
             .countdown-number { font-size: 2.5rem; }
-            .details-grid { gap: 1.5rem; }
+            .countdown-item { min-width: 75px; padding: 1.4rem 0.8rem; }
+            .countdown-section { padding: 4rem 1rem; }
+            .details { padding: 4rem 1rem; }
+            .details-grid {
+                gap: 1.5rem;
+                grid-template-columns: 1fr;
+            }
+            .detail-card { padding: 2rem 1.5rem; }
+            .couple-section { padding: 3rem 1rem; }
             .couple-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -1435,22 +1605,52 @@
             .couple-heart {
                 order: -1;
             }
+            .couple-floral-left, .couple-floral-right {
+                width: 160px;
+                height: 240px;
+                opacity: 0.2;
+            }
             .photo-frame {
                 width: 180px;
                 height: 230px;
             }
+            .map-section { padding: 4rem 1rem; }
+            .map-wrapper iframe { height: 260px; }
+            .rsvp { padding: 4rem 1rem; }
+            .rsvp-form { max-width: 100%; }
+            .section-title { font-size: 2.5rem; }
+            .title-flourish { margin: 0 auto 1.5rem; }
+            .title-flourish-line { width: 45px; }
+            .footer { padding: 3rem 1rem; }
+            .footer-names { font-size: 2rem; }
+            .wax-seal { width: 68px; height: 68px; }
+            .wax-seal-inner { width: 50px; height: 50px; }
+            .wax-seal-monogram { font-size: 1.1rem; }
+            .dress-palette { gap: 0.4rem; }
+            .color-swatch { width: 22px; height: 22px; }
+            .gallery-section { padding: 4rem 1rem; }
+            .gallery-card { max-width: 100% !important; padding: 1rem; }
+            .gallery-frame { aspect-ratio: 4 / 3; }
+            .lightbox-caption { font-size: 1.1rem; bottom: 1.5rem; padding: 0.8rem 1.2rem; width: 90%; }
         }
 
         @media (max-width: 480px) {
-            .nav a { font-size: 0.6rem; letter-spacing: 1px; }
-            .hero-subtitle { font-size: 0.7rem; letter-spacing: 4px; }
-            .invitation-text { font-size: 1.1rem; }
-            .rsvp-heading { font-size: 2.5rem; }
+            .nav a { font-size: 0.55rem; letter-spacing: 1px; }
+            .hero-subtitle { font-size: 0.6rem; letter-spacing: 3px; }
+            .hero-names { font-size: clamp(2rem, 12vw, 4rem); }
+            .invitation-text { font-size: 1.05rem; line-height: 1.9; }
+            .invitation-inner { padding: 2rem 1.2rem; }
             .section-title { font-size: 2.2rem; }
+            .couple-name { font-size: 1.8rem; }
             .photo-frame {
                 width: 160px;
                 height: 210px;
             }
+            .detail-value { font-size: 1.25rem; }
+            .detail-sub { font-size: 0.78rem; }
+            .map-wrapper iframe { height: 220px; }
+            .countdown-item { min-width: 65px; padding: 1.2rem 0.6rem; }
+            .countdown-number { font-size: 2rem; }
         }
     </style>
 </head>
@@ -1497,10 +1697,18 @@
     <nav class="nav" id="mainNav">
         <a href="#home">Home</a>
         <a href="#couple">Our Story</a>
+        <a href="#gallery">Memories</a>
         <a href="#details">Details</a>
         <a href="#venue">Venue</a>
         <a href="#rsvp">RSVP</a>
     </nav>
+
+    <!-- Lightbox Overlay -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="Full view">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1568,9 +1776,9 @@
         <div class="couple-grid">
             <!-- Wife -->
             <div class="couple-card reveal-left delay-2">
-                <div class="photo-frame">
+                <div class="photo-frame" style="cursor: zoom-in;" onclick="openLightbox('tessie.jpg', 'The beautiful bride, whose love and grace have illuminated the past 50 years.')">
                     <div class="photo-frame-inner">
-                        <img src="tessie.jpg" alt="Tessie C. Hinosolango" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2;" onerror="this.style.display='none'">
+                        <img src="tessie.jpg" alt="Tessie C. Hinosolango" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: 2;" onerror="this.style.display='none'">
                         <div class="photo-placeholder">
                             <div class="cameo-badge">
                                 <svg width="68" height="68" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1632,9 +1840,9 @@
 
             <!-- Husband -->
             <div class="couple-card reveal-right delay-4">
-                <div class="photo-frame">
+                <div class="photo-frame" style="cursor: zoom-in;" onclick="openLightbox('sonny.jpg', 'The devoted groom, whose steady heart has been the foundation of half a century of love.')">
                     <div class="photo-frame-inner">
-                        <img src="sonny.jpg" alt="Santos L. Hinosolango" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2;" onerror="this.style.display='none'">
+                        <img src="sonny.jpg" alt="Santos L. Hinosolango" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: 2;" onerror="this.style.display='none'">
                         <div class="photo-placeholder">
                             <div class="cameo-badge">
                                 <svg width="68" height="68" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1671,6 +1879,45 @@
                 <p class="couple-name">Sonny</p>
                 <p class="couple-role">The Groom</p>
                 <p class="couple-fullname">Santos L. Hinosolango</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery / 50 Years of Memories -->
+    <section class="gallery-section" id="gallery">
+        <h2 class="section-title reveal">50 Years of Memories</h2>
+        <p class="section-subtitle reveal delay-1">Where it all began</p>
+        <div class="title-flourish reveal delay-1">
+            <div class="title-flourish-line"></div>
+            <div class="title-flourish-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="title-flourish-line"></div>
+        </div>
+
+        <!-- Single Centered Wedding Photo -->
+        <div class="gallery-card reveal-scale delay-2" style="max-width: 520px; margin: 2.5rem auto 0;">
+            <div class="gallery-frame" onclick="openLightbox('wedding-photo.jfif', '1976 &mdash; The beautiful beginning of a 50-year golden journey.')">
+                <img src="wedding-photo.jfif" alt="Tessie & Sonny's Wedding Day" onerror="this.style.display='none'">
+                <div class="gallery-placeholder">
+                    <div class="cameo-badge">
+                        <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="28" stroke="#E8D48B" stroke-width="2" fill="none"/>
+                            <circle cx="24" cy="22" r="6" stroke="#F5E6A3" stroke-width="1.5" fill="none"/>
+                            <circle cx="40" cy="22" r="6" stroke="#F5E6A3" stroke-width="1.5" fill="none"/>
+                            <path d="M18 42C18 34 22 28 24 28C28 28 30 32 32 32C34 32 36 28 40 28C42 28 46 34 46 42" stroke="#F5E6A3" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <span class="gallery-placeholder-title">✦ Wedding Day ✦</span>
+                    <span class="gallery-placeholder-sub">Save photo as "wedding-photo.jpg"</span>
+                </div>
+            </div>
+            <div class="gallery-caption">
+                <span class="gallery-year">Their Wedding Day</span>
+                <p class="gallery-title">Where It All Began</p>
+                <p class="gallery-desc">A love that has grown stronger for 50 golden years</p>
             </div>
         </div>
     </section>
@@ -1939,7 +2186,10 @@
             <svg width="16" height="16" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M32 56L8 32C2 24 4 14 14 10C20 8 26 10 32 18C38 10 44 8 50 10C60 14 62 24 56 32L32 56Z"/></svg>
             <svg width="16" height="16" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M32 56L8 32C2 24 4 14 14 10C20 8 26 10 32 18C38 10 44 8 50 10C60 14 62 24 56 32L32 56Z"/></svg>
         </p>
-        <p class="footer-credit">Made by RhymNash</p>
+        <p class="footer-credit">
+            &copy; RhymNash<br>
+            <span style="font-size: 0.85em; opacity: 0.8; display: inline-block; margin-top: 0.3rem;">All rights reserved</span>
+        </p>
     </div>
 
     <script>
@@ -2108,6 +2358,30 @@
                     a.style.color = 'var(--gold-shine)';
                 }
             });
+        });
+
+        // Lightbox
+        function openLightbox(src, captionText) {
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+            img.src = src;
+            if (captionText) {
+                cap.innerHTML = captionText;
+                cap.style.display = 'block';
+            } else {
+                cap.style.display = 'none';
+            }
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
         });
     </script>
 
