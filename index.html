@@ -923,6 +923,19 @@
             opacity: 0.8;
             line-height: 1.8;
         }
+        .detail-time {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #1a1207;
+            background: linear-gradient(120deg, var(--gold-light), var(--gold-shine), var(--gold));
+            padding: 0.15rem 0.9rem;
+            margin: 0.2rem 0 0.7rem;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(201, 168, 76, 0.3);
+        }
         .detail-card .detail-icon:nth-child(1) { animation-delay: 0s; }
 
         /* ===== Countdown ===== */
@@ -1734,7 +1747,7 @@
         <a href="#gallery">Memories</a>
         <a href="#details">Details</a>
         <a href="#venue">Venue</a>
-        <a href="#rsvp">RSVP</a>
+        <a href="#rsvp">Will You Come?</a>
     </nav>
 
     <!-- Lightbox Overlay -->
@@ -2048,8 +2061,8 @@
                 </div>
                 <p class="detail-label">Ceremony</p>
                 <p class="detail-value">United Church of Christ<br>in the Philippines</p>
+                <p class="detail-time">3:00 PM</p>
                 <p class="detail-sub">
-                    3:00 PM<br>
                     Macasandig<br>
                     Agripina Z, Ramiro St, Ramiroville II,<br>
                     Biasong, Macasandig,<br>
@@ -2079,8 +2092,8 @@
                 </div>
                 <p class="detail-label">Reception</p>
                 <p class="detail-value">Balite Dart House</p>
+                <p class="detail-time">4:30 PM</p>
                 <p class="detail-sub">
-                    4:30 PM<br>
                     Agripina Z, Ramiro St, Ramiroville II,<br>
                     Biasong, Macasandig,<br>
                     Cagayan de Oro City
@@ -2149,7 +2162,7 @@
 
     <!-- RSVP Section -->
     <section class="rsvp" id="rsvp">
-        <h2 class="section-title reveal">RSVP</h2>
+        <h2 class="section-title reveal">Will You Come?</h2>
         <p class="section-subtitle reveal delay-1">Kindly respond by October 5, 2026</p>
         <div class="title-flourish reveal delay-1">
             <div class="title-flourish-line"></div>
@@ -2199,7 +2212,7 @@
             </div>
 
             <button type="submit" class="rsvp-btn" id="submitBtn">
-                <span>Send RSVP</span>
+                <span>Send My Reply</span>
             </button>
 
             <div class="form-message" id="formMessage"></div>
@@ -2358,7 +2371,7 @@
                 });
 
                 msg.className = 'form-message success';
-                msg.textContent = '✨ Thank you for your RSVP! We look forward to celebrating with you.';
+                msg.textContent = '✨ Thank you for your reply! We look forward to celebrating with you.';
                 msg.style.display = 'block';
                 this.reset();
 
